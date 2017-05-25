@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck, Input } from '@angular/core';
 
 import { MultiReg } from './../multi-reg.model';
 import { ContentService } from './../content.service';
@@ -8,12 +8,19 @@ import { ContentService } from './../content.service';
   templateUrl: './dynamic-content.component.html',
   styleUrls: ['./dynamic-content.component.css']
 })
-export class DynamicContentComponent implements OnInit {
-  multiReg: MultiReg;
+export class DynamicContentComponent implements OnInit, DoCheck {
+  @Input() multiReg: MultiReg;
+  @Input() formData;
 
   constructor(private contentService: ContentService) { }
 
   ngOnInit() {
+    this.multiReg = this.contentService.getMultiReg();
+  }
+
+  ngDoCheck() {
+    let data = this.formData.value;
+    this.contentService.setMultiReg(data);
     this.multiReg = this.contentService.getMultiReg();
   }
 

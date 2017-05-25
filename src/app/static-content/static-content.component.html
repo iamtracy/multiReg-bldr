@@ -1,20 +1,32 @@
 <div class="row">
   <div class="small-12 columns">
-    <form>
+    <h1>Configuration Area</h1>
+    <hr/>
+    <form [formGroup]="multiRegForm" #form="ngForm">
       <label>Banner Image Url
-        <input type="text" placeholder=".small-12.columns" aria-describedby="exampleHelpText">
+        <input 
+          type="text" 
+          placeholder="banner image url" 
+          aria-describedby="place the banner image url in this field"
+          formControlName="bannerImg">
       </label>
-      <p class="help-text" id="exampleHelpText">Upload the banner image to the CMS and past the Url here.</p>
+      <p class="help-text" id="exampleHelpText">Upload a banner image to the CMS and past the Url here.</p>
+      <label>Event Title
+        <input 
+          type="text" 
+          placeholder="event title" 
+          aria-describedby="place the event title here"
+          formControlName="title">
+      </label>
       <label>
-    What books did you read over summer break?
-    <textarea placeholder="None"></textarea>
+    Fill in the MultiReg abstract
+    <textarea 
+      placeholder="abstract" 
+      rows="4"
+      formControlName="abstract">
+      </textarea>
     </label>
-      <div class="input-group">
-        <div class="input-group-button">
-          <input type="submit" class="button" value="Submit">
-        </div>
-      </div>
     </form>
   </div>
 </div>
-<app-dynamic-content></app-dynamic-content>
+<app-dynamic-content [formData]="form"></app-dynamic-content>

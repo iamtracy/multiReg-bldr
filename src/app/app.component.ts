@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { StaticContentComponent } from './static-content/static-content.component';
-import { HeaderComponent } from './header/header.component';
 
 
 @Component({

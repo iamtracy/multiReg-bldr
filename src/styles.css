@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+section {
+  margin: 1.5rem 0;
+}
+
+.menu-text:first-child {
+  padding-left: 0;
+}
